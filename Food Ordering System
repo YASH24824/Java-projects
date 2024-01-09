@@ -1,0 +1,229 @@
+import java.util.*;
+class foodordering {
+    Scanner sc = new Scanner(System.in);
+
+    void takeorder() {
+        int m_num;
+        boolean b = true;
+
+        System.out.println("==============================");
+        System.out.println("Welcome to LJ Online Food Menu");
+        System.out.println("==============================");
+        System.out.println(" 1. Instamart \n  2. Dishes  \n 3. Thali's \n 4. Exit the menu ");
+        System.out.print("Please Enter the Number to Execute the Menu :");
+         m_num = sc.nextInt();
+
+        switch (m_num) {
+
+            case 1:
+
+                foodordering f1 = new foodordering();
+                f1.instamart();
+                break;
+
+            case 2:
+
+                foodordering f2 = new foodordering();
+                f2.dishes();
+                break;
+
+            case 3:
+
+                foodordering f3 = new foodordering();
+                f3.Thali();
+                break;
+            case 4:
+
+                System.exit(0);
+
+        }
+
+        System.out.println("Today's special discount");
+        Random rc = new Random();
+        int rand = rc.nextInt(3);
+
+        if (b) {
+            if (rand == 0) {
+                System.out.println("Maha Pizza Discount on Every Pizza in Min Order of 599 with 30% OFF");
+            } else if (rand == 1) {
+                System.out.println("Maha Burger Discount on Every Burger in Min Order of 299 with 30% OFF");
+            } else {
+                System.out.println("Maha French Fries Discount on Every 2 Pack of French Fries get 30% OFF");
+            }
+
+        }
+
+    }
+
+    void instamart() {
+        System.out.println("Welcome to LJ Food Instamart");
+        System.out.println("You can order Food packets");
+        System.out.print("What do you want to Order:");
+
+        String ins_order = sc.nextLine();
+
+        if (ins_order.equalsIgnoreCase("food packets")) {
+
+            System.out.println("Enter the order to pack the order");
+            System.out.println("1. Chola puri:2$ \n 2. Chola kulche:2$  \n 3. To go again to food menu \n Sorry for inconvience some food are not avaialbe");
+            int menu1 = sc.nextInt();
+
+            switch (menu1) {
+
+                case 1:
+
+                    System.out.println("You have order chola puri");
+                    foodordering f2 = new foodordering();
+                    f2.billforinstamart(menu1); break;
+
+                case 2:
+
+                    System.out.println("You have order Chola Kulcha");
+                    foodordering f3 = new foodordering();
+                    f3.billforinstamart(menu1); break;
+
+                case 3:
+
+                    foodordering f4 = new foodordering();
+                    f4.instamart(); break;
+            }
+        }
+
+    }
+
+
+    void dishes() {
+
+        System.out.println("Welcome to LJ Food Instamart");
+        System.out.println("You can order dishes ");
+        System.out.print("What do you want to Order:");
+
+        String ins_order = sc.nextLine();
+
+        if (ins_order.equalsIgnoreCase("dish")) {
+
+            System.out.println("Enter the order to pack the order");
+            System.out.println("1. premium indian falovoured rice:20$ \n 2. Exotic Italian pizza:25$  \n 3. To go again to food menu \n Sorry for inconvience some food are not avaialbe");
+
+            int menu1 = sc.nextInt();
+
+            switch (menu1) {
+
+                case 1:
+
+                    System.out.println("You have order  premium indian falovoured rice ");
+                    foodordering f2 = new foodordering();
+                    f2.billforinstamart(menu1); break;
+
+                case 2:
+
+                    System.out.println("You have order Exotic Italian pizza ");
+                    foodordering f3 = new foodordering();
+                    f3.billforinstamart(menu1); break;
+
+                case 3:
+                    foodordering f4 = new foodordering();
+                    f4.instamart(); break;
+            }
+        }
+    }
+
+
+
+    void Thali() {
+        System.out.println("Welcome to LJ Food Instamart");
+        System.out.println("You can order ");
+        System.out.print("What do you want to Order:");
+        String ins_order = sc.nextLine();
+
+        if (ins_order.equalsIgnoreCase("thali")) {
+
+            System.out.println("Enter the order to pack the order");
+            System.out.println("1. Gujarati thali:5$ \n 2. Punjabi thali52$  \n 3. To go again to food menu \n Sorry for inconvience some food are not avaialbe");
+
+            int menu1 = sc.nextInt();
+
+            switch (menu1) {
+
+                case 1:
+
+                    System.out.println("You have order Gujarati thali");
+                    foodordering f2 = new foodordering();
+                    f2.billforinstamart(menu1); break;
+
+                case 2:
+
+                    System.out.println("You have order Punjabi thali");
+                    foodordering f3 = new foodordering();
+                    f3.billforinstamart(menu1); break;
+
+                case 3:
+
+                    foodordering f4 = new foodordering();
+                    f4.instamart(); break;
+            }
+        }
+    }
+
+    void addressper() {
+        System.out.println("Please enter the Address to deliver the food");
+        String address = sc.nextLine();
+    }
+
+    void billforinstamart(int x) {
+
+        switch (x) {
+
+            case 1:
+
+                System.out.println("Please enter your name");
+                String name = sc.nextLine();
+                System.out.println("Please enter you Phone number");
+                String ph = sc.next();
+                while (ph.length() != 10) {
+                    System.out.println("Please enter the valid 10 digit mobile number");
+                    ph = sc.next();
+                }
+                foodordering f5 = new foodordering();
+                f5.addressper();
+                System.out.println("If you want to add the order simulatanously than enter the count");
+                int count = 1;
+                count = sc.nextInt();
+                System.out.println("Your total bill is :" + count * 3 + "$");
+                break;
+
+            case 2:
+
+                System.out.println("Please enter your name");
+                String name1 = sc.nextLine();
+                System.out.println("Please enter you Phone number");
+                String ph1 = sc.next();
+                while (ph1.length() != 10) {
+                    System.out.println("Please enter the valid 10 digit mobile number");
+                    ph1 = sc.next();
+                }
+                foodordering f6 = new foodordering();
+
+                f6.addressper();
+                System.out.println("If you want to add the order simulatanously than enter the count");
+                int count2 = 1;
+                count2 = sc.nextInt();
+                System.out.println("Your total bill is :" + count2 * 3 + "$");
+                break;
+
+        }
+
+    }
+}
+class run
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        foodordering fc = new foodordering();
+        fc.takeorder();
+        System.out.println("Your food is deilverd to your respected area");
+        System.out.println("Thank you..... visit again....");
+    }
+
+}
